@@ -1,4 +1,4 @@
-# annuaire_nws
+# Annuaire pour la Normandie Web School
 
 Vous serez au courant au fur et à mesure des fonctionnalités qui seront ajoutées à l'annuaire !
 
