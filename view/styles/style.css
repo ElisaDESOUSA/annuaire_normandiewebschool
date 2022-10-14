@@ -1,0 +1,65 @@
+/* CSS général  */
+
+body {
+    @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fugaz One', cursive;
+    color: #CA4B38;
+}
+
+.wrapper {
+    margin-top: 4vh;
+    margin-left: 4vw;
+    margin-right: 4vw;
+}
+
+/* CSS ListStudent */
+
+.heading {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+th {
+    font-family: 'Fugaz One', cursive; 
+    font-weight: 500; 
+}
+.heading_button {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    /* width: 30%; */
+    justify-content: space-around;
+}
+
+.button {
+    padding: 15px 20px 15px 20px;
+    border-radius: 7px;
+    color: white;
+    text-decoration: none;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.button_red {
+    background-color: #CA4B38; 
+}
+.button_red:hover,
+.button_red:active,
+.button_red.active {
+    color: white;
+    background-color: rgba(202, 75, 56, 0.8);
+}
+
+.button_green {
+    background-color: #00A5A5; 
+}
+
+.button_green:hover,
+.button_green:active,
+.button_green.active {
+    color: white;
+    background-color: rgba(0, 165, 165, 0.8);
+}
