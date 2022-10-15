@@ -1,6 +1,8 @@
-<?php
-    require_once ("index.php");
+<?php 
+    require_once('home.php');
+    require_once('header.php');
 ?>
+
 <div class="wrapper">
     <h1>Ajout d'un nouvel étudiant</h1>
     <form action="post">
