@@ -21,7 +21,7 @@ class Database
     {
         try 
         {
-            $this->pdo = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname, $this->login, $this->password );
+            $this->pdo = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->database, $this->login, $this->password );
             echo "Connecté à la BDD";
             return $this->pdo;
         } 
