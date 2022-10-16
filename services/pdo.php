@@ -27,13 +27,12 @@ class Database
         } 
         catch (Exception $e) 
         {
-            die('Erreur: '. $e->getMessage());
+            die('Erreur de connexion à la BDD : '. $e->getMessage());
         } 
     }
 
-    public function getConnected() 
+    public function getDatabase() 
     {
         return $this->pdo; 
     }
-
 }

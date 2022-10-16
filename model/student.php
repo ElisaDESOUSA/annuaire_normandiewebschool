@@ -1,6 +1,7 @@
 <?php
 
-class Student {
+class Student  
+{
 
     public int $id;
     public string $firstname;
