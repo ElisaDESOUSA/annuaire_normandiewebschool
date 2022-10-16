@@ -2,9 +2,12 @@
     require_once ('home.php');
     require_once('header.php');
     require_once('../services/pdo.php');
-    $database = new Database();
-    $query = $database->query('SELECT * FROM students');
-    $students = $database->fetchAll(PDO::FETCH_OBJ);
+    require_once('../model/sqlStatement.php');
+    require_once('../model/student.php');
+    $datatest = new Database;
+    $sql = new SQLStatement(`students`, $datatest);
+    $students = $sql->getAll();
+
 ?>
 
 <div class="wrapper">
@@ -31,16 +34,17 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($students as $student); ?>
-            <tr>
-                <td><?= $student->id ?></td>
-                <td><?= $student->firstname ?></td>
-                <td><?= $student->name ?></td>
-                <td><?= $student->email ?></td>
-                <td><?= $student->phoneNumber ?></td>
-                <td><?= $student->year ?></td>
-                <td><?= $student->specialization ?></td>
-            </tr>
+            <?php foreach($students as $student) {?>
+                <tr>
+                    <td><?= $student["id"] ?></td>
+                    <td><?= $student["firstname"] ?></td>
+                    <td><?= $student["name"] ?></td>
+                    <td><?= $student["email"] ?></td>
+                    <td><?= $student["phoneNumber"] ?></td>
+                    <td><?= $student["year"] ?></td>
+                    <td><?= $student["specialization"] ?></td>
+                </tr>
+            <?php }?>
         </tbody>
     </table>
 </div>
