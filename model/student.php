@@ -2,7 +2,6 @@
 
 class Student  
 {
-
     public int $id;
     public string $firstname;
     public string $name;
@@ -24,4 +23,7 @@ class Student
         $this->specialization = $specialization;
     }
 
+    public function save() {
+
+    }
 }
