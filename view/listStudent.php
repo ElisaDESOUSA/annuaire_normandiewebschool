@@ -1,8 +1,12 @@
 <?php
-    require_once('index.php');
-
-    $db = new PDO('mysql:host=localhost;dbname=annuaire_nws', 'root', '');
+    require_once ('home.php');
+    require_once('header.php');
+    require_once('../services/pdo.php');
+    $database = new Database();
+    $query = $database->query('SELECT * FROM students');
+    $students = $database->fetchAll(PDO::FETCH_OBJ);
 ?>
+
 <div class="wrapper">
     <div class="heading">
         <div class="heading_list">
@@ -27,14 +31,15 @@
             </tr>
         </thead>
         <tbody>
+            <?php foreach($students as $student); ?>
             <tr>
-                <td>#1</td>
-                <td>Prénom 1</td>
-                <td>Nom 1</td>
-                <td>Email 1</td>
-                <td>Téléphone</td>
-                <td>Année 1</td>
-                <td>Spécialité 1</td>
+                <td><?= $student->id ?></td>
+                <td><?= $student->firstname ?></td>
+                <td><?= $student->name ?></td>
+                <td><?= $student->email ?></td>
+                <td><?= $student->phoneNumber ?></td>
+                <td><?= $student->year ?></td>
+                <td><?= $student->specialization ?></td>
             </tr>
         </tbody>
     </table>
