@@ -1,9 +1,10 @@
 <?php
-    require_once('home.php');
+    require_once ('home.php');
     require_once('header.php');
     require_once('../services/pdo.php');
-    $query = $pdo->query('SELECT * FROM students');
-    $students = $query->fetchAll(PDO::FETCH_OBJ);
+    $database = new Database();
+    $query = $database->query('SELECT * FROM students');
+    $students = $database->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <div class="wrapper">
