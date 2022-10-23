@@ -1,4 +1,13 @@
 <?php
+
+
+$connection = new mysqli('localhost', 'root', '', 'annuaire_nws');
+
+if(!$connection) 
+{
+    die(mysqli_error($connection));
+};
+
 if(isset($_POST))
 {
     // Check if inputs are empty

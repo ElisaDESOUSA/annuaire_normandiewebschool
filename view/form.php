@@ -5,11 +5,32 @@
     require_once('../services/pdo.php');
     require_once('connect.php');
     
+    // if(isset($_POST['submit'])) {
+    //     $firstname=$_POST['firstname'];
+    //     $name=$_POST['name'];
+    //     $emailAddress=$_POST['emailAddress'];
+    //     $phoneNumber=$_POST['phoneNumber'];
+    //     $year=$_POST['year'];
+    //     $specialization=$_POST['specialization'];
+
+    //     $sql="insert into `students` (firstname, name, emailAddress, phoneNumber, year, specialization)
+    //     values('$firstname', '$name', '$emailAddress', '$phoneNumber', '$year', '$specialization')";
+    //     $result=mysqli_query($connection, $sql);
+    //     if($result)
+    //     {
+    //         header('location:listStudent.php');
+    //     }
+    //     else 
+    //     {
+    //         die(mysqli_error($connection));
+    //     }
+
+    // }
 ?>
 
 <div class="wrapper">
     <h1>Ajout d'un nouvel étudiant</h1>
-    <form action="connect.php" method="POST">
+    <form action="connect.php" method="post">
         <div class="form_input">
             <label for="firstname">Prénom</label>
             <input type="text" placeholder="Renseignez un prénom" name ="firstname" required>
