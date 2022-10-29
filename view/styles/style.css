@@ -205,6 +205,11 @@ th {
     font-family: 'Fugaz One', cursive; 
     font-weight: 500; 
 }
+
+a {
+    text-decoration: none !important;
+}
+
 .heading_button {
     display: flex;
     flex-wrap: wrap;

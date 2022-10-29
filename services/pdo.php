@@ -6,7 +6,7 @@ class Database
     private string $database;    
     private string $login;
     private string $password;
-    public $pdo;
+    public $connection;
 
     public function __construct() 
     {
@@ -21,9 +21,9 @@ class Database
     {
         try 
         {
-            $this->pdo = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->database, $this->login, $this->password );
+            $this->connection = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->database, $this->login, $this->password );
             echo "Connecté à la BDD";
-            return $this->pdo;
+            return $this->connection;
         } 
         catch (Exception $e) 
         {
@@ -33,6 +33,6 @@ class Database
 
     public function getDatabase() 
     {
-        return $this->pdo; 
+        return $this->connection; 
     }
 }
