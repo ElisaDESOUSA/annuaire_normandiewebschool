@@ -24,21 +24,21 @@ class SQLStatement
 	// 	return $req->fetch();
 	// }
 	
-	// public function getAll()
-	// {
-	// 	$sql_getAll = 'SELECT * FROM' . $this->_table;
-	// 	$query = $this->_database->pdo->prepare($sql_getAll);
-	// 	$query->execute();
-	// 	// $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,$this->_obj);
-	// 	return $query->fetchAll();
-	// }
+	public function getAll()
+	{
+		$sql_getAll = 'SELECT * FROM' . $this->_table;
+		$query = $this->_database->pdo->prepare($sql_getAll);
+		$query->execute();
+		// $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,$this->_obj);
+		return $query->fetchAll();
+	}
 	
-	// public function create()
-	// {
-	// 	$sql_insert = 'INSERT INTO' . $this->_table . 'VALUES ("")';
-    //     $query = $this->pdo->prepare($sql_insert);
-    //     $query->execute();
-	// }
+	public function create()
+	{
+		$sql_insert = 'INSERT INTO' . $this->_table . 'VALUES ("")';
+        $query = $this->pdo->prepare($sql_insert);
+        $query->execute();
+	}
 	
 	// public function update($obj)
 	// {

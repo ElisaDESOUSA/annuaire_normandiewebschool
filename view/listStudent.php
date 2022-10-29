@@ -42,7 +42,7 @@
         <tbody>
             <?php
             $sql="Select * from `students`";
-            $result=mysqli_query($connection, $sql);
+            $result=mysqli_query($sql);
             if($result)
             {
                 while($row=mysqli_fetch_assoc($result)) 
