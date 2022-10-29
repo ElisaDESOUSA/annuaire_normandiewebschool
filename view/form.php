@@ -1,31 +1,11 @@
 <?php 
-    require_once('home.php');
+    require_once ('../index.php');
     require_once('header.php');
-    require_once('../model/student.php');
-    require_once('../services/pdo.php');
     require_once('connect.php');
+    require_once('../services/pdo.php');
+    require_once('../model/sqlStatement.php');
+    require_once('../model/student.php');
     
-    // if(isset($_POST['submit'])) {
-    //     $firstname=$_POST['firstname'];
-    //     $name=$_POST['name'];
-    //     $emailAddress=$_POST['emailAddress'];
-    //     $phoneNumber=$_POST['phoneNumber'];
-    //     $year=$_POST['year'];
-    //     $specialization=$_POST['specialization'];
-
-    //     $sql="insert into `students` (firstname, name, emailAddress, phoneNumber, year, specialization)
-    //     values('$firstname', '$name', '$emailAddress', '$phoneNumber', '$year', '$specialization')";
-    //     $result=mysqli_query($connection, $sql);
-    //     if($result)
-    //     {
-    //         header('location:listStudent.php');
-    //     }
-    //     else 
-    //     {
-    //         die(mysqli_error($connection));
-    //     }
-
-    // }
 ?>
 
 <div class="wrapper">

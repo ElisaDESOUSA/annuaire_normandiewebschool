@@ -1,5 +1,5 @@
 <?php
-    require_once ('home.php');
+    require_once ('../index.php');
     require_once('header.php');
     require_once('connect.php');
     require_once('../services/pdo.php');
@@ -17,11 +17,15 @@
             <h1>Nombre d'étudiants</h1>
             <p>Insérez le nombre d'étudiant</p>
         </div>
+
+        <!-- Boutons action filtrage et ajout d'un nouvel étudiant -->
         <div class="heading_button">
             <a href="#" class="button button_red">Filter la liste étudiante</a>
             <a href="form.php" class="button button_green">Ajout d'un nouvel étudiant</a>
         </div>
     </div>
+
+    <!-- Liste étudiants  -->
     <table class="table table-striped">
         <thead>
             <tr>

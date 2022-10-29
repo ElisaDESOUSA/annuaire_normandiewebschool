@@ -1,44 +1,44 @@
 <?php 
-    require_once('home.php');
+    require_once('../index.php');
     require_once('header.php');
     require_once('../model/student.php');
     require_once('../services/pdo.php');
     require_once('connect.php');
 
-    $id=$_GET['updateid'];
-    // Permet d'afficher les données déjà inscrite sur la ligne dans le formulaire UPDATE
-    $sql="Select * from `students` where id=$id";
-    $result=mysqli_query($connection, $sql);
-    $row=mysqli_fetch_assoc($result);
-    $id=$row['id'];
-    $firstname=$row['firstname'];
-    $name=$row['name'];
-    $emailAddress=$row['emailAddress'];
-    $phoneNumber=$row['phoneNumber'];
-    $year=$row['year'];
-    $specialization=$row['specialization'];
+    // $id=$_GET['updateid'];
+    // // Permet d'afficher les données déjà inscrite sur la ligne dans le formulaire UPDATE
+    // $sql="Select * from `students` where id=$id";
+    // $result=mysqli_query($connection, $sql);
+    // $row=mysqli_fetch_assoc($result);
+    // $id=$row['id'];
+    // $firstname=$row['firstname'];
+    // $name=$row['name'];
+    // $emailAddress=$row['emailAddress'];
+    // $phoneNumber=$row['phoneNumber'];
+    // $year=$row['year'];
+    // $specialization=$row['specialization'];
     
-    if(isset($_POST['submit'])) {
-        $firstname=$_POST['firstname'];
-        $name=$_POST['name'];
-        $emailAddress=$_POST['emailAddress'];
-        $phoneNumber=$_POST['phoneNumber'];
-        $year=$_POST['year'];
-        $specialization=$_POST['specialization'];
+    // if(isset($_POST['submit'])) {
+    //     $firstname=$_POST['firstname'];
+    //     $name=$_POST['name'];
+    //     $emailAddress=$_POST['emailAddress'];
+    //     $phoneNumber=$_POST['phoneNumber'];
+    //     $year=$_POST['year'];
+    //     $specialization=$_POST['specialization'];
 
-        $sql="update into `students` set id='$id', firstname='$firstname', name='$name', emailAddress='$emailAddress',
-        phoneNumber='$phoneNumber', year='$year', specialization='$specialization' where id=$id";
-        $result=mysqli_query($connection, $sql);
-        if($result)
-        {
-            header('location:listStudent.php');
-        }
-        else 
-        {
-            die(mysqli_error($connection));
-        }
+    //     $sql="update into `students` set id='$id', firstname='$firstname', name='$name', emailAddress='$emailAddress',
+    //     phoneNumber='$phoneNumber', year='$year', specialization='$specialization' where id=$id";
+    //     $result=mysqli_query($connection, $sql);
+    //     if($result)
+    //     {
+    //         header('location:listStudent.php');
+    //     }
+    //     else 
+    //     {
+    //         die(mysqli_error($connection));
+    //     }
 
-    }
+    // }
 
 ?>
 
@@ -75,7 +75,7 @@
         </div>
         <div class="form_input">
             <label for="specialization">Spécialité souhaitée</label>
-            <select name="specialization" id="" required value=<?php echo $specialization;?>>
+            <select name="specialization" id="" required value=<?php echo $se;?>>
                 <option value="">Choissiez une spécialité</option>
                 <option value="">Marketing</option>
                 <option value="">Développement web</option>
