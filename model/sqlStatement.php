@@ -35,6 +35,14 @@ class SQLStatement
 
 		// On execute la commande SELECT avec les données récupérées depuis le controller
 		$sql = "SELECT * FROM `students` WHERE 1";
+
+		// Barre de recherche 
+		$param = [];
+		if (!empty($_GET['q'])) {
+            $sql .= " WHERE nom LIKE :nom";
+            $params['nom'] = '%' . $_GET['q'] . '%';
+        }
+
 		$req = $pdo->connection->prepare($sql);
 		$req->execute();
 		$resultat = $req->fetchAll();

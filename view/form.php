@@ -1,6 +1,5 @@
 <?php 
     require_once ('../index.php');
-    require_once('header.php');
     require_once('../services/database.php');
    
     

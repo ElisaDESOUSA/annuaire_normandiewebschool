@@ -1,6 +1,5 @@
 <?php
     require_once ('../index.php');
-    require_once('header.php');
     require_once('../controller/read.php');
 ?>
 
@@ -17,14 +16,20 @@
             <a href="form.php" class="button button_green">Ajout d'un nouvel étudiant</a>
         </div>
     </div>
+    <form action="">
+        <div class="search-bar">
+            <input type="text" class="search" name="q" placeholder="Rechercher un étudiant">
+        </div>
+        <button class="btn btn-primary w-auto">Rechercher</button>
+    </form>
 
     <!-- Liste étudiants  -->
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Prénom</th>
-                <th>Nom </th>
+                <th>Nom</th>
+                <th>Prénom </th>
                 <th>Adresse mail</th>
                 <th>Téléphone</th>
                 <th>Année</th>

@@ -186,12 +186,13 @@ label {
 }
 
 [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
-    margin-top: 4vh;
     width: 100%;
 }
-/* option {
-    color: #F9F5F5;
-} */
+
+.contact_submit {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
 
 /* CSS ListStudent */
 
@@ -259,6 +260,18 @@ a {
 
 [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
     margin-top: 0vh !important;
+}
+
+.search-bar {
+    background-color: #F9F6F6;
+    border-radius: 7px;
+    padding: 20px;
+}
+
+.search {
+    width: 100%;
+    background-color: #ffffff !important;
+    border: 1px solid #E0E0E0 !important;
 }
 /* Responsive ListStudents  */
 
