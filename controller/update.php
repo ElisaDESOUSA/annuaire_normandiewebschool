@@ -1,10 +1,8 @@
 <?php 
     require_once('../index.php');
-    require_once('header.php');
     require_once('../model/student.php');
-    require_once('../services/pdo.php');
-    require_once('connect.php');
-
+    require_once('../services/database.php');
+ 
     // $id=$_GET['updateid'];
     // // Permet d'afficher les données déjà inscrite sur la ligne dans le formulaire UPDATE
     // $sql="Select * from `students` where id=$id";
@@ -41,6 +39,7 @@
     // }
 
 ?>
+
 
 <div class="wrapper">
     <h1>Ajout d'un nouvel étudiant</h1>

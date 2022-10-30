@@ -186,12 +186,13 @@ label {
 }
 
 [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
-    margin-top: 4vh;
     width: 100%;
 }
-/* option {
-    color: #F9F5F5;
-} */
+
+.contact_submit {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
 
 /* CSS ListStudent */
 
@@ -199,6 +200,7 @@ label {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 5vh !important;
 }
 
 th {
@@ -250,6 +252,27 @@ a {
     background-color: rgba(0, 165, 165, 0.8);
 }
 
+.actions {
+    display:flex;
+    align-items: center;
+    gap: 30px;
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    margin-top: 0vh !important;
+}
+
+.search-bar {
+    background-color: #F9F6F6;
+    border-radius: 7px;
+    padding: 20px;
+}
+
+.search {
+    width: 100%;
+    background-color: #ffffff !important;
+    border: 1px solid #E0E0E0 !important;
+}
 /* Responsive ListStudents  */
 
 @media screen and (max-width: 700px) {

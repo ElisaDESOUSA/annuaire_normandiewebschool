@@ -22,7 +22,7 @@ class Database
         try 
         {
             $this->connection = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->database, $this->login, $this->password );
-            echo "Connecté à la BDD";
+            // echo "Connecté à la BDD";
             return $this->connection;
         } 
         catch (Exception $e) 

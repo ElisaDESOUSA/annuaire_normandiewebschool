@@ -1,51 +1,92 @@
 <?php
 
-require_once('../services/pdo.php');
+require_once('../services/database.php');
 require_once('../model/student.php');
+// require_once('../controller/create.php');
+
 
 class SQLStatement
 {
-	private $_table;
+	private $table;
 	// private $_object;
-	private $_database;
+	private $database;
 	
-	public function __construct($_table, $_database)
-	{
-		$this->_table = $_table;
-		// $this->_object = $object;
-		$this->_database = $_database;
-	}
-	
-	// public function getById($id)
+	// public function __construct($table, $database)
 	// {
-	// 	$req = $_database->prepare("SELECT * FROM " . $this->_table . " WHERE id=?");
-	// 	$req->execute(array($id));
-	// 	// $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,$this->_obj);
-	// 	return $req->fetch();
+	// 	$this->_table = $_table;
+	// 	// $this->_object = $object;
+	// 	$this->_database = $_database;
 	// }
+	
+	public function getById($id)
+	{
+		$pdo = new Database;
+		$req = $database->prepare("SELECT * FROM `students` WHERE id=?");
+		$req->execute(array($id));
+		// $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,$this->_obj);
+		return $req->fetch();
+	}
 	
 	public function getAll()
 	{
-		$sql_getAll = 'SELECT * FROM' . $this->_table;
-		$query = $this->_database->pdo->prepare($sql_getAll);
-		$query->execute();
-		// $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,$this->_obj);
-		return $query->fetchAll();
+		$readForm = [];
+		// On instancie une nouvelle class Database afin de récupérer les données à la BDD
+		$pdo = new Database([PDO::FETCH_ASSOC]);
+
+		// On execute la commande SELECT avec les données récupérées depuis le controller
+		$sql = "SELECT * FROM `students` WHERE 1";
+
+		// Barre de recherche 
+		$param = [];
+		if (!empty($_GET['q'])) {
+            $sql .= " WHERE nom LIKE :nom";
+            $params['nom'] = '%' . $_GET['q'] . '%';
+        }
+
+		$req = $pdo->connection->prepare($sql);
+		$req->execute();
+		$resultat = $req->fetchAll();
+		foreach($resultat as $row) {
+			$readForm[] = new Student($row);
+		}
+		return $readForm;
 	}
 	
-	public function create()
+	public function create($firstname, $name, $emailAddress, $phoneNumber, $year, $specialization)
 	{
-		$sql_insert = 'INSERT INTO' . $this->_table . 'VALUES ("")';
-        $query = $this->pdo->prepare($sql_insert);
-        $query->execute();
+		// On instancie une nouvelle class Database afin d'envoyer les données à la BDD
+		$pdo = new Database;
+
+		// On execute la commande INSERT avec les données récupérées depuis le controller
+		$sql = "INSERT INTO `students` (firstname, name, emailAddress, phoneNumber, year, specialization)
+		VALUES('$firstname', '$name', '$emailAddress', '$phoneNumber', '$year', '$specialization')";
+		$req = $pdo->connection->prepare($sql);
+		$req->execute();
+
 	}
 	
-	// public function update($obj)
-	// {
-		
-	// }
+	public function update()
+	{
+		$pdo = new Database;
+	}
 	
-	// public function delete($obj)
+	public function delete($id)
+	{
+		$pdo = new Database;
+
+		$sql = "DELETE FROM `students` WHERE id='$id'";
+		$resultat = $sql;
+		$req = $pdo->connection->prepare($sql);
+		$req->execute();
+
+		if($resultat) {
+			echo "delete $ID";
+			return true;
+		} else {
+			return false;
+		}
+
+	}
 	// {
 	// 	if(property_exists($obj,"id"))
 	// 	{

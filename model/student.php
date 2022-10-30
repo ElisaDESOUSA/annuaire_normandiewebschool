@@ -11,19 +11,45 @@ class Student
     public string $specialization;
 
 
-    public function __construct(int $id, string $firstname, string $name, string $emailAddress, string $phoneNumber,  
-    string $year, string $speciality) 
+    public function __construct($row) 
     {
-        $this->id = $id;
-        $this->firstname = $firstname;
-        $this->name = $name;
-        $this->emailAddress = $emailAddress;
-        $this->phoneNumber = $phoneNumber;
-        $this->year = $year;
-        $this->specialization = $specialization;
+        $this->id = $row['id'];
+        $this->firstname = $row['firstname'];
+        $this->name = $row['name'];
+        $this->emailAddress = $row['emailAddress'];
+        $this->phoneNumber = $row['phoneNumber'];
+        $this->year = $row['year'];
+        $this->specialization = $row['specialization'];
     }
 
-    public function save() {
-
+    public function get_id() {
+        return $this->id;
     }
+
+    public function get_firstname() {
+        return $this->name;
+    }
+
+    public function get_name() {
+        return $this->firstname;
+    }
+
+    public function get_emailAddress() {
+        return $this->emailAddress;
+    }
+
+    public function get_phoneNumber() {
+        return $this->phoneNumber;
+    }
+
+    public function get_year() {
+        return $this->year;
+    }
+
+    public function get_specialization() {
+        return $this->specialization;
+    }
+
+
+
 }
