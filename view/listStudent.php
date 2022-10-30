@@ -1,13 +1,13 @@
 <?php
     require_once ('../index.php');
     require_once('header.php');
-    require_once('connect.php');
-    require_once('../services/pdo.php');
+    // require_once('connect.php');
+    require_once('../services/database.php');
     require_once('../model/sqlStatement.php');
     require_once('../model/student.php');
-    $datatest = new Database;
-    $sql = new SQLStatement(`students`, $datatest);
-    $students = $sql->getAll();
+    // $pdo = new Database;
+    // $sqlStatement = new SQLStatement(`students`, $pdo);
+    // $students = $sqlStatement->getAll();
 
 ?>
 
@@ -41,47 +41,49 @@
         </thead>
         <tbody>
             <?php
-            $sql="Select * from `students`";
-            $result=mysqli_query($sql);
-            if($result)
+            // $res = $sql;
+            // $result=mysqli_query($pdo, $sql);
+            if(!empty($students))
+            echo "Find students";
             {
-                while($row=mysqli_fetch_assoc($result)) 
-                {
-                    $id=$row['id'];
-                    $firstname=$row['firstname'];
-                    $name=$row['name'];
-                    $emailAddress=$row['emailAddress'];
-                    $phoneNumber=$row['phoneNumber'];
-                    $year=$row['year'];
-                    $specialization=$row['specialization'];
+                foreach($students as $row)
 
-                    echo '<tr>
-                    <th scope="row">' . $id . '</th>
-                    <td>'. $firstname .'</td>
-                    <td>'. $name .'</td>
-                    <td>'. $emailAddress .'</td>
-                    <td>'. $phoneNumber .'</td>
-                    <td>'. $year .'</td>
-                    <td>'. $specialization .'</td>
-                    <td>
-                        <button class="button button_red"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
-                        <button class="button button_green"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
-                    </td>
-                    </tr>';
-                }
-            }
-            ?>
-            <?php foreach($students as $student) {?>
+            //     while($row) 
+            //     {
+            //         $id=$row['id'];
+            //         $firstname=$row['firstname'];
+            //         $name=$row['name'];
+            //         $emailAddress=$row['emailAddress'];
+            //         $phoneNumber=$row['phoneNumber'];
+            //         $year=$row['year'];
+            //         $specialization=$row['specialization'];
+
+            //         echo '<tr>
+            //         <th scope="row">' . $id . '</th>
+            //         <td>'. $firstname .'</td>
+            //         <td>'. $name .'</td>
+            //         <td>'. $emailAddress .'</td>
+            //         <td>'. $phoneNumber .'</td>
+            //         <td>'. $year .'</td>
+            //         <td>'. $specialization .'</td>
+            //         <td>
+            //             <button class="button button_red"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
+            //             <button class="button button_green"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
+            //         </td>
+            //         </tr>';
+            //     }
+            // }
+            {?>
                 <tr>
-                    <td><?= $student["id"] ?></td>
-                    <td><?= $student["firstname"] ?></td>
-                    <td><?= $student["name"] ?></td>
-                    <td><?= $student["emailAddress"] ?></td>
-                    <td><?= $student["phoneNumber"] ?></td>
-                    <td><?= $student["year"] ?></td>
-                    <td><?= $student["specialization"] ?></td>
+                    <td><?= $row["id"] ?></td>
+                    <td><?= $row["firstname"] ?></td>
+                    <td><?= $row["name"] ?></td>
+                    <td><?= $row["emailAddress"] ?></td>
+                    <td><?= $row["phoneNumber"] ?></td>
+                    <td><?= $row["year"] ?></td>
+                    <td><?= $row["specialization"] ?></td>
                 </tr>
-            <?php }?>
+            <?php }}?>
         </tbody>
     </table>
 </div>

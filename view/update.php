@@ -2,7 +2,7 @@
     require_once('../index.php');
     require_once('header.php');
     require_once('../model/student.php');
-    require_once('../services/pdo.php');
+    require_once('../services/database.php');
     require_once('connect.php');
 
     // $id=$_GET['updateid'];
