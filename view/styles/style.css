@@ -199,6 +199,7 @@ label {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 5vh !important;
 }
 
 th {
@@ -250,6 +251,15 @@ a {
     background-color: rgba(0, 165, 165, 0.8);
 }
 
+.actions {
+    display:flex;
+    align-items: center;
+    gap: 30px;
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    margin-top: 0vh !important;
+}
 /* Responsive ListStudents  */
 
 @media screen and (max-width: 700px) {

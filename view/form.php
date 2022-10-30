@@ -2,10 +2,7 @@
     require_once ('../index.php');
     require_once('header.php');
     require_once('../services/database.php');
-    // require_once('../model/sqlStatement.php');
-    // require_once('../model/student.php');
-    // require_once('../controller/create.php');
-    
+   
     
 ?>
 
