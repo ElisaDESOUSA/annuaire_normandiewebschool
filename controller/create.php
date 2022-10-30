@@ -7,8 +7,9 @@ require_once('../model/sqlStatement.php');
 $create = new Create;
 $create->createStudent();
 
-// Une fois la fonction exécutée, on redirige vers la la liste étudiante
+// Une fois la fonction exécutée, on redirige vers la liste étudiante
 header('location: http://localhost/annuaire_normandiewebschool/view/listStudent.php');
+
 
 // On vient créer une class qui récupère les données rentrées par l'utilisateur
 class Create 
@@ -41,6 +42,7 @@ class Create
 				$specialization = ($_POST['specialization']);
             }
 
+            // On passe les variables en paramètre de la fonction create() de SQLStatement
             return $insertForm->create($firstname, $name, $emailAddress, $phoneNumber, $year, $specialization);
         }
     }

@@ -1,10 +1,7 @@
 <?php
     require_once ('../index.php');
     require_once('header.php');
-    // require_once('connect.php');
-    require_once('../services/database.php');
-    require_once('../model/sqlStatement.php');
-    require_once('../model/student.php');
+    require_once('../controller/read.php');
     // $pdo = new Database;
     // $sqlStatement = new SQLStatement(`students`, $pdo);
     // $students = $sqlStatement->getAll();
@@ -40,50 +37,21 @@
             </tr>
         </thead>
         <tbody>
-            <?php
-            // $res = $sql;
-            // $result=mysqli_query($pdo, $sql);
-            if(!empty($students))
-            echo "Find students";
-            {
-                foreach($students as $row)
-
-            //     while($row) 
-            //     {
-            //         $id=$row['id'];
-            //         $firstname=$row['firstname'];
-            //         $name=$row['name'];
-            //         $emailAddress=$row['emailAddress'];
-            //         $phoneNumber=$row['phoneNumber'];
-            //         $year=$row['year'];
-            //         $specialization=$row['specialization'];
-
-            //         echo '<tr>
-            //         <th scope="row">' . $id . '</th>
-            //         <td>'. $firstname .'</td>
-            //         <td>'. $name .'</td>
-            //         <td>'. $emailAddress .'</td>
-            //         <td>'. $phoneNumber .'</td>
-            //         <td>'. $year .'</td>
-            //         <td>'. $specialization .'</td>
-            //         <td>
-            //             <button class="button button_red"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
-            //             <button class="button button_green"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
-            //         </td>
-            //         </tr>';
-            //     }
-            // }
-            {?>
+            <?php foreach($readForm as $row): ?>
                 <tr>
-                    <td><?= $row["id"] ?></td>
-                    <td><?= $row["firstname"] ?></td>
-                    <td><?= $row["name"] ?></td>
-                    <td><?= $row["emailAddress"] ?></td>
-                    <td><?= $row["phoneNumber"] ?></td>
-                    <td><?= $row["year"] ?></td>
-                    <td><?= $row["specialization"] ?></td>
+                    <td><?= $row->get_id() ?></td>
+                    <td><?= $row->get_firstname() ?></td>
+                    <td><?= $row->get_name() ?></td>
+                    <td><?= $row->get_emailAddress() ?></td>
+                    <td><?= $row->get_phoneNumber() ?></td>
+                    <td><?= $row->get_year() ?></td>
+                    <td><?= $row->get_specialization() ?></td>
+                    <td>
+                        <button class="button button_red"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
+                        <button class="button button_green"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>    
+                    </td>
                 </tr>
-            <?php }}?>
+            <?php endforeach ?>
         </tbody>
     </table>
 </div>

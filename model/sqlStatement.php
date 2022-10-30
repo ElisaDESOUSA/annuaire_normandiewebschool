@@ -21,7 +21,7 @@ class SQLStatement
 	public function getById($id)
 	{
 		$pdo = new Database;
-		$req = $_database->prepare("SELECT * FROM " . $this->_table . " WHERE id=?");
+		$req = $database->prepare("SELECT * FROM `students` WHERE id=?");
 		$req->execute(array($id));
 		// $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,$this->_obj);
 		return $req->fetch();
@@ -29,18 +29,19 @@ class SQLStatement
 	
 	public function getAll()
 	{
-		$pdo = new Database;
-		$sql = 'SELECT * FROM' . $this->_table;
-		$req = $this->_database->connection->prepare($sql);
-		$req->execute();
-		// $query->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,$this->_obj);
-		$res = $req->fetchAll(PDO::FETCH_ASSOC);
+		$readForm = [];
+		// On instancie une nouvelle class Database afin de récupérer les données à la BDD
+		$pdo = new Database([PDO::FETCH_ASSOC]);
 
-		// foreach($res as $row) 
-		// {
-		// 	$students[] = new Student($row);
-		// }
-		// return $students;
+		// On execute la commande SELECT avec les données récupérées depuis le controller
+		$sql = "SELECT * FROM `students` WHERE 1";
+		$req = $pdo->connection->prepare($sql);
+		$req->execute();
+		$resultat = $req->fetchAll();
+		foreach($resultat as $row) {
+			$readForm[] = new Student($row);
+		}
+		return $readForm;
 	}
 	
 	public function create($firstname, $name, $emailAddress, $phoneNumber, $year, $specialization)
@@ -51,44 +52,9 @@ class SQLStatement
 		// On execute la commande INSERT avec les données récupérées depuis le controller
 		$sql = "INSERT INTO `students` (firstname, name, emailAddress, phoneNumber, year, specialization)
 		VALUES('$firstname', '$name', '$emailAddress', '$phoneNumber', '$year', '$specialization')";
-		$pdo->connection->exec($sql);
+		$req = $pdo->connection->prepare($sql);
+		$req->execute();
 
-		// if(isset($_POST['submit'])) {
-		// 	// Check if inputs are empty
-		// 	if(!empty($_POST['firstname']) 
-		// 	&& !empty($_POST['name']) 
-		// 	&& !empty($_POST['emailAddress']) 
-		// 	&& !empty($_POST['phoneNumber'])
-		// 	&& !empty($_POST['year']) 
-		// 	&& !empty($_POST['specialization'])
-		// 	) {
-		// 		//Create a new Student 
-		// 		// $student = new Student($_POST['firstname'], $_POST['name'], $_POST['emailAddress'], $_POST['phoneNumber'], 
-		// 		// $_POST['year'], $_POST['specialization']);
-		
-		// 		//Data
-		// 		$firstname = ($_POST['firstname']);
-		// 		$name = ($_POST['name']);
-		// 		$emailAddress = ($_POST['emailAddress']); 
-		// 		$phoneNumber = ($_POST['phoneNumber']);
-		// 		$year = ($_POST['year']);
-		// 		$specialization = ($_POST['specialization']);
-		
-		// 		// Insert into table 'students'
-		// 		// $sql = "INSERT INTO `students` (firstname, name, emailAddress, phoneNumber, year, specialization)
-		// 		// VALUES('$firstname', '$name', '$emailAddress', '$phoneNumber', '$year', '$specialization')";
-		// 		// $pdo->connection->exec($sql);
-		// 		// header('location:listStudent.php');
-		// 	}
-		// 	else 
-		// 	{
-		// 		echo "Error dans l'envoi du formulaire";
-		// 	}
-		// }
-		
-		// $sql = 'INSERT INTO' . $this->_table . 'VALUES ("")';
-        // $req = $this->connection->prepare($sql);
-        // $req->execute();
 	}
 	
 	public function update()
@@ -99,6 +65,19 @@ class SQLStatement
 	public function delete($id)
 	{
 		$pdo = new Database;
+
+		$sql = "DELETE FROM `students` WHERE id='$id'";
+		$resultat = $sql;
+		$req = $pdo->connection->prepare($sql);
+		$req->execute();
+
+		if($resultat) {
+			echo "delete $ID";
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 	// {
 	// 	if(property_exists($obj,"id"))
