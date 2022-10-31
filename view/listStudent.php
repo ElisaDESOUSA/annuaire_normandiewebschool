@@ -6,7 +6,7 @@
 <div class="wrapper">
     <div class="heading">
         <div class="heading_list">
-            <h1>Nombre d'étudiants</h1>
+            <h1>Liste d'étudiants</h1>
             <p>Insérez le nombre d'étudiant</p>
         </div>
 
@@ -16,11 +16,15 @@
             <a href="form.php" class="button button_green">Ajout d'un nouvel étudiant</a>
         </div>
     </div>
-    <form action="">
+    <form action="" class="search-container">
         <div class="search-bar">
+            <button class="btn w-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#8F8F8F" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </button>
             <input type="text" class="search" name="q" placeholder="Rechercher un étudiant">
         </div>
-        <button class="btn btn-primary w-auto">Rechercher</button>
     </form>
 
     <!-- Liste étudiants  -->
