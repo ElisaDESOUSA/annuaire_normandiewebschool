@@ -1,30 +1,40 @@
 # Annuaire pour la Normandie Web School
 
 Vous serez au courant au fur et à mesure des fonctionnalités qui seront ajoutées à l'annuaire !
+## **Technologies utilisées :**
 
-Contexte :
+HTML / CSS / Bootstrap / JavaScript / PHP / MySQL 
+
+## **Contexte :**
 
 La Normandie Web School souhaite centraliser les informations sur les nouveaux étudiants qui souhaitent rejoindre l'école. 
 
-Cahier des charges :
+## **Cahier des charges :**
 
-Sauvegarde des données en Base de données
+### _Sauvegarde des données en Base de données :_ ✅
+
 La sauvegarde des données doit se faire au moyen d’une base de données (MySQL ou MariaDB)
 
-Ajout d’un contact
+### _Ajout d’un contact :_ ✅
+
 Avec un appel à une fonction PHP, vous devez pouvoir ajouter un contact dans votre BDD et le sauvegarder
 
-Modifier un contact
+### _Modifier un contact :_ 
+
 Avec un appel à une fonction PHP, vous devez pouvoir mettre à jour un contact dans votre BDD et le sauvegarder
 
-Suppression d’un contact
+### _Suppression d’un contact :_
+
 Avec un appel à une fonction PHP, vous devez pouvoir supprimer un contact dans votre BDD et le sauvegarder
 
-Recherche d’un contact
+### _Recherche d’un contact :_ ✅
+
 Avec un appel à une fonction PHP, vous pouvez récupérer depuis votre BDD un contact en particulier
 
-Trier les contacts
+### _Trier les contacts :_
+
 Avec un appel à une fonction PHP, vous pouvez trier les contacts sur le critère que vous souhaitez
 
-Filtrer les contacts
+### _Filtrer les contacts :_ ✅
+
 Avec un appel à une fonction PHP, vous pouvez filtrer les contacts sur le critère que vous souhaitez
