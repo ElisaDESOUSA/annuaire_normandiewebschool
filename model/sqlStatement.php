@@ -34,17 +34,17 @@ class SQLStatement
 		$pdo = new Database([PDO::FETCH_ASSOC]);
 
 		// On execute la commande SELECT avec les données récupérées depuis le controller
-		$sql = "SELECT * FROM `students` WHERE 1";
+		$sql = "SELECT * FROM `students`";
 
 		// Barre de recherche 
-		$param = [];
+		$params = [];
 		if (!empty($_GET['q'])) {
-            $sql .= " WHERE nom LIKE :nom";
-            $params['nom'] = '%' . $_GET['q'] . '%';
+            $sql .= "WHERE name LIKE :name";
+            $params['name'] = '%' . $_GET['q'] . '%';
         }
 
 		$req = $pdo->connection->prepare($sql);
-		$req->execute();
+		$req->execute($params);
 		$resultat = $req->fetchAll();
 		foreach($resultat as $row) {
 			$readForm[] = new Student($row);
