@@ -2,7 +2,6 @@
 
 require_once('../services/database.php');
 require_once('../model/student.php');
-// require_once('../controller/create.php');
 
 
 class SQLStatement
