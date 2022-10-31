@@ -36,16 +36,32 @@ class SQLStatement
 		// On execute la commande SELECT avec les données récupérées depuis le controller
 		$sql = "SELECT * FROM `students`";
 
-		// Barre de recherche 
+		// Barre de recherche par nom de famille de l'étudiant
 		$params = [];
-		if (!empty($_GET['q'])) {
+		if (!empty($_GET['q'])) 
+		{
             $sql .= "WHERE name LIKE :name";
             $params['name'] = '%' . $_GET['q'] . '%';
         }
 
+		// Tri de chaque colonne par ordre croissant et décroissant
+		$sortable = ["id", "firstname", "name", "emailAddress", "phoneNumber", "year", "specialization"];
+
+		// Permet de vérifier que ce que les colonnes que l'on trie se trouve dans la variable $sortable
+		if (!empty($_GET['sort']) && in_array($_GET['sort'], $sortable)) 
+		{
+			$direction = $_GET['dir'] ?? 'asc';
+			// Permet de s'assurer qu'il n'y a que la valeur 'asc' ou 'desc' de pris en compte, et redirige automatiquement vers 'asc' autrement
+			if(!in_array($direction, ['asc', 'desc'])) 
+			{
+				$direction = 'asc';
+			}
+			$sql .= " ORDER BY " . $_GET['sort'] . " $direction";
+		}
 		$req = $pdo->connection->prepare($sql);
 		$req->execute($params);
 		$resultat = $req->fetchAll();
+		// var_dump($resultat);
 		foreach($resultat as $row) {
 			$readForm[] = new Student($row);
 		}

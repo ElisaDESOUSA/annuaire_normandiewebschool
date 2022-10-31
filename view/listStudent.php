@@ -1,6 +1,7 @@
 <?php
     require_once ('../index.php');
     require_once('../controller/read.php');
+    require_once('../model/tableHelper.php')
 ?>
 
 <div class="wrapper">
@@ -23,7 +24,7 @@
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg>
             </button>
-            <input type="text" class="search" name="q" placeholder="Rechercher un étudiant">
+            <input type="text" class="search" name="q" placeholder="Rechercher un étudiant" value="<?= htmlentities($_GET['q'] ?? null) ?>">
         </div>
     </form>
 
@@ -31,13 +32,13 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nom</th>
-                <th>Prénom </th>
-                <th>Adresse mail</th>
-                <th>Téléphone</th>
-                <th>Année</th>
-                <th>Spécialité</th>
+                <th><?= TableHelper::sort('id', 'ID', $_GET) ?></th>
+                <th><?= TableHelper::sort('name', 'Nom', $_GET) ?></th>
+                <th><?= TableHelper::sort('firstname', 'Prénom', $_GET) ?></th>
+                <th><?= TableHelper::sort('emailAddress', 'Adresse mail', $_GET) ?></th>
+                <th><?= TableHelper::sort('phoneNumber', 'Téléphone', $_GET) ?></th>
+                <th><?= TableHelper::sort('year', 'Année', $_GET) ?></th>
+                <th><?= TableHelper::sort('specialization', 'Spécialité', $_GET) ?></th>
                 <th>Actions</th>
             </tr>
         </thead>
