@@ -34,10 +34,20 @@ class SQLStatement
 
 		if (!empty($_GET['q'])) 
 		{
+			// Regarde si ma recherche correspond à un des champs
             $sql .= "WHERE name LIKE :name";
             $sql .= " OR firstname LIKE :firstname";
+            $sql .= " OR emailAddress LIKE :emailAddress";
+            $sql .= " OR phoneNumber LIKE :phoneNumber";
+            $sql .= " OR year LIKE :year";
+			$sql .= " OR specialization LIKE :specialization";
+
             $params['name'] = '%' . $_GET['q'] . '%';
             $params['firstname'] = '%' . $_GET['q'] . '%';
+            $params['emailAddress'] = '%' . $_GET['q'] . '%';
+            $params['phoneNumber'] = '%' . $_GET['q'] . '%';
+            $params['year'] = '%' . $_GET['q'] . '%';
+            $params['specialization'] = '%' . $_GET['q'] . '%';
         }
 
 		// Tri de chaque colonne par ordre croissant et décroissant
