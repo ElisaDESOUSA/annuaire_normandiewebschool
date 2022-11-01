@@ -31,10 +31,10 @@ Avec un appel à une fonction PHP, vous devez pouvoir supprimer un contact dans 
 
 Avec un appel à une fonction PHP, vous pouvez récupérer depuis votre BDD un contact en particulier
 
-### _Trier les contacts :_
+### _Trier les contacts :_ ✅
 
 Avec un appel à une fonction PHP, vous pouvez trier les contacts sur le critère que vous souhaitez
 
-### _Filtrer les contacts :_ ✅
+### _Filtrer les contacts :_ 
 
 Avec un appel à une fonction PHP, vous pouvez filtrer les contacts sur le critère que vous souhaitez

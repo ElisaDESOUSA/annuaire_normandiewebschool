@@ -1,5 +1,7 @@
 /* CSS général  */
-
+:root {
+    --bs-font-sans-serif: 'Mulish', sans-serif !important;
+}
 body {
     @import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500&display=swap");
@@ -8,6 +10,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Fugaz One', cursive;
     color: #CA4B38;
+}
+
+a {
+    color: #252525 !important;
 }
 
 .wrapper {
@@ -173,6 +179,15 @@ input, select {
     padding: 10px 20px 10px 20px;
 }
 
+input:invalid {
+    border: 1px solid #CA4B38;
+    color: #CA4B38;
+}
+
+.error {
+    background-color: #900;
+}
+
 label {
     font-weight: 700;
     margin-bottom: 0.5vh;
@@ -225,7 +240,7 @@ a {
     border: none; 
     padding: 15px 20px 15px 20px;
     border-radius: 7px;
-    color: white;
+    color: white !important;
     text-decoration: none;
     font-family: 'Mulish', sans-serif;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
