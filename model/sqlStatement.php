@@ -7,23 +7,17 @@ require_once('../model/student.php');
 class SQLStatement
 {
 	private $table;
-	// private $_object;
 	private $database;
 	
-	// public function __construct($table, $database)
-	// {
-	// 	$this->_table = $_table;
-	// 	// $this->_object = $object;
-	// 	$this->_database = $_database;
-	// }
 	
 	public function getById($id)
 	{
 		$pdo = new Database;
-		$req = $database->prepare("SELECT * FROM `students` WHERE id=?");
+
+		$req = $pdo->connection->prepare("SELECT * FROM `students` WHERE id='$id'");
 		$req->execute(array($id));
-		// $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,$this->_obj);
-		return $req->fetch();
+		$resultat = $req->fetch();
+		return $student = new Student($resultat);
 	}
 	
 	public function getAll()
@@ -57,10 +51,12 @@ class SQLStatement
 			}
 			$sql .= " ORDER BY " . $_GET['sort'] . " $direction";
 		}
+
+		// Prepare et exécute les requêtes SQL
 		$req = $pdo->connection->prepare($sql);
 		$req->execute($params);
 		$resultat = $req->fetchAll();
-		// var_dump($resultat);
+
 		foreach($resultat as $row) {
 			$readForm[] = new Student($row);
 		}
@@ -80,9 +76,23 @@ class SQLStatement
 
 	}
 	
-	public function update()
+	public function update($id)
 	{
 		$pdo = new Database;
+
+		$sql = "UPDATE FROM `students` WHERE id='$id'";
+		$resultat = $sql;
+		$req = $pdo->connection->prepare($sql);
+		$req->execute();
+
+		if($resultat) {
+			echo "update $id";
+			return true;
+		} else {
+			return false;
+		}
+
+		
 	}
 	
 	public function delete($id)
@@ -95,22 +105,11 @@ class SQLStatement
 		$req->execute();
 
 		if($resultat) {
-			echo "delete $ID";
+			echo "delete $id";
 			return true;
 		} else {
 			return false;
 		}
 
 	}
-	// {
-	// 	if(property_exists($obj,"id"))
-	// 	{
-	// 		$req = $_database->prepare("DELETE FROM " . $this->_table . " WHERE id=?");
-	// 		return $req->execute(array($obj->id));
-	// 	}
-	// 	// else
-	// 	// {
-	// 	// 	throw new PropertyNotFoundException($this->_object, "id");	
-	// 	// }
-	// }
 }

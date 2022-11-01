@@ -2,46 +2,41 @@
     require_once('../index.php');
     require_once('../model/student.php');
     require_once('../services/database.php');
- 
-    // $id=$_GET['updateid'];
-    // // Permet d'afficher les données déjà inscrite sur la ligne dans le formulaire UPDATE
-    // $sql="Select * from `students` where id=$id";
-    // $result=mysqli_query($connection, $sql);
-    // $row=mysqli_fetch_assoc($result);
-    // $id=$row['id'];
-    // $firstname=$row['firstname'];
-    // $name=$row['name'];
-    // $emailAddress=$row['emailAddress'];
-    // $phoneNumber=$row['phoneNumber'];
-    // $year=$row['year'];
-    // $specialization=$row['specialization'];
+    require_once('../model/sqlStatement.php');
+
+    // On instancie une nouvelle class Create pour qu'à chaque fois qu'on appelle le controller elle soit déjà instanciée automatiquement
+    $update = new Update;
+    $update->updateStudent();
+    require_once('../view/formUpdate.php');
     
-    // if(isset($_POST['submit'])) {
-    //     $firstname=$_POST['firstname'];
-    //     $name=$_POST['name'];
-    //     $emailAddress=$_POST['emailAddress'];
-    //     $phoneNumber=$_POST['phoneNumber'];
-    //     $year=$_POST['year'];
-    //     $specialization=$_POST['specialization'];
+    // Une fois la fonction exécutée, on redirige vers la liste étudiante
+    // header('location: http://localhost/annuaire_normandiewebschool/view/listStudent.php');
 
-    //     $sql="update into `students` set id='$id', firstname='$firstname', name='$name', emailAddress='$emailAddress',
-    //     phoneNumber='$phoneNumber', year='$year', specialization='$specialization' where id=$id";
-    //     $result=mysqli_query($connection, $sql);
-    //     if($result)
-    //     {
-    //         header('location:listStudent.php');
-    //     }
-    //     else 
-    //     {
-    //         die(mysqli_error($connection));
-    //     }
-
-    // }
-
+    // On vient créer une class qui récupère les données rentrées par l'utilisateur
+    class Update 
+    {
+        public function updateStudent() 
+        {
+                // On instancie une nouvelle class SQLStatement qui va nous permettre d'utiliser la commande UPDATE de update()
+                $updateForm = new SQLStatement();
+                echo "fred la merde";
+                return $updateForm->getById($_POST['id']);
+                
+                // $id = $_POST['id'];
+                // // $firstname = $_POST['firstname'];
+                // // $name = $_POST['name'];
+                // // $emailAddress = $_POST['emailAddress'];
+                // // $phoneNumber = $_POST['phoneNumber'];
+                // // $year = $_POST['year'];
+                // // $specialization = $_POST['specialization'];
+                
+                // return $updateForm->update($id, $firstname, $name, $emailAddress, $phoneNumber, $year, $specialization);
+        }    
+    }
 ?>
 
 
-<div class="wrapper">
+<!-- <div class="wrapper">
     <h1>Ajout d'un nouvel étudiant</h1>
     <form action="connect.php" method="post">
         <div class="form_input">
@@ -74,7 +69,7 @@
         </div>
         <div class="form_input">
             <label for="specialization">Spécialité souhaitée</label>
-            <select name="specialization" id="" required value=<?php echo $se;?>>
+            <select name="specialization" id="" required value=<?php echo $specialization?>>
                 <option value="">Choissiez une spécialité</option>
                 <option value="">Marketing</option>
                 <option value="">Développement web</option>
@@ -87,4 +82,4 @@
             <button type="submit" class="button button_green" id="submit" name="submit">Modifier les données de l'étudiant</button>
         </div>
     </form>
-</div>
+</div> -->

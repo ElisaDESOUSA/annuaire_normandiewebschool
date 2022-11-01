@@ -1,5 +1,7 @@
 /* CSS général  */
-
+:root {
+    --bs-font-sans-serif: 'Mulish', sans-serif !important;
+}
 body {
     @import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
     @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500&display=swap");
@@ -175,6 +177,15 @@ input, select {
     background-color: #F9F5F5;
     color: #8F8F8F;
     padding: 10px 20px 10px 20px;
+}
+
+input:invalid {
+    border: 1px solid #CA4B38;
+    color: #CA4B38;
+}
+
+.error {
+    background-color: #900;
 }
 
 label {

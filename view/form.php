@@ -18,11 +18,11 @@
         </div>
         <div class="form_input">
             <label for="emailAddress">Email</label>
-            <input type="email" placeholder="Renseignez une adresse email" name="emailAddress" required>
+            <input type="email" id="email" placeholder="Renseignez une adresse email" name="emailAddress" required>
         </div>
         <div class="form_input">
             <label for="phoneNumber" >Téléphone</label>
-            <input type="text" placeholder="Renseignez un numéro de téléphone" name="phoneNumber" required>
+            <input type="text" pattern="[0-9]{10}" maxlenght="10" placeholder="Renseignez un numéro de téléphone" name="phoneNumber" required>
         </div>
         <div class="form_input">
             <label for="year">Année</label>
