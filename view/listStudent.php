@@ -28,13 +28,99 @@
         </div>
     </form>
 
+    <!-- Filtre liste étudiante -->
+    <form action="" method="GET">
+        <div class="card">
+            <div class="card-header">
+                <h3>Filtre</h3>
+                <button class="button button_red width-30" type="submit">Filtrer</button>
+            </div>
+            <div class="card-body">
+                <div class="card-year">
+                    <h4 class="filter-title">Année</h4>
+                        <div class="checkbox">
+                            <input type="checkbox">
+                            <label for="">A1 - Initial</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox">
+                            <label for="">A1 - Alternance</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox">
+                            <label for="">A2 - Initial</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox">
+                            <label for="">A2 - Alternance</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox">
+                            <label for="">A3 - Alternance</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox">
+                            <label for="">Non renseigné</label>
+                        </div>
+                </div>
+                <div class="card-specialization">
+                    <h4 class="filter-title">Spécialisation</h4>
+                        <div class="checkbox">
+                            <input type="checkbox">
+                            <label for="">Marketing</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox">
+                            <label for="">Développement web</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox">
+                            <label for="">Communication Graphique</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox">
+                            <label for="">Social Media Manager</label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox">
+                            <label for="">Non renseigné</label>
+                        </div>
+                </div>
+
+<!-- 
+
+                    <!-- 
+                <?php foreach($readForm as $checklist)
+                {
+                    $checked = [];
+                    if(isset($_GET['checkbox']))
+                    {
+                        $checked = ($_GET['checkbox']);
+                    }
+                    ?>
+                    <div class="">
+                        <div class="filter-year">
+                            <input type="checkbox" name="checkbox[]" value="<?= $checklist->get_id(); ?>"
+                                <?php if(in_array($checklist->get_id(), $checked)) {
+                                    echo "checked!";
+                                }?>
+                            />
+                            <?= $checklist->get_year(); ?>
+                        </div>
+                    </div><?php
+                } ?> -->
+            </div>
+        </div>
+    </form>
+
+
     <!-- Liste étudiants  -->
     <table class="table table-striped">
         <thead>
             <tr>
                 <th><?= TableHelper::sort('id', 'ID', $_GET) ?></th>
-                <th><?= TableHelper::sort('name', 'Nom', $_GET) ?></th>
                 <th><?= TableHelper::sort('firstname', 'Prénom', $_GET) ?></th>
+                <th><?= TableHelper::sort('name', 'Nom', $_GET) ?></th>
                 <th><?= TableHelper::sort('emailAddress', 'Adresse mail', $_GET) ?></th>
                 <th><?= TableHelper::sort('phoneNumber', 'Téléphone', $_GET) ?></th>
                 <th><?= TableHelper::sort('year', 'Année', $_GET) ?></th>
@@ -43,6 +129,18 @@
             </tr>
         </thead>
         <tbody>
+
+            <?php 
+                if(isset($_GET['checkbox'])) 
+                {
+                    $studentCheck = [];
+                    $studentCheck = $_GET['checkbox'];
+                    foreach($studentCheck as $studentChecked) 
+                    {
+                        echo $student = "SELECT * FROM `students` WHERE ";
+                    }
+                }
+            ?> 
             <?php foreach($readForm as $row): ?>
                 <tr>
                     <td><?= $row->get_id() ?></td>
@@ -53,7 +151,8 @@
                     <td><?= $row->get_year() ?></td>
                     <td><?= $row->get_specialization() ?></td>
                     <td class="actions">
-                        <form action="../controller/update.php" method="POST">
+                        <form action="../view/formUpdate.php" method="POST">
+                        <!-- <form action="../controller/update.php" method="POST"> -->
                             <input type="hidden" name="id" value="<?php echo $row->get_id(); ?>">
                             <button type="submit" name="update" value="update" title="Editer la ligne" class="btn btn-light">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#8F8F8F" class="bi bi-pencil-square" viewBox="0 0 16 16">

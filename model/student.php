@@ -27,11 +27,11 @@ class Student
     }
 
     public function get_firstname() {
-        return $this->name;
+        return $this->firstname;
     }
 
     public function get_name() {
-        return $this->firstname;
+        return $this->name;
     }
 
     public function get_emailAddress() {
