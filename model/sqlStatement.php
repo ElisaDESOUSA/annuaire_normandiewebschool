@@ -31,10 +31,13 @@ class SQLStatement
 
 		// Barre de recherche par nom de famille de l'étudiant
 		$params = [];
+
 		if (!empty($_GET['q'])) 
 		{
             $sql .= "WHERE name LIKE :name";
+            $sql .= " OR firstname LIKE :firstname";
             $params['name'] = '%' . $_GET['q'] . '%';
+            $params['firstname'] = '%' . $_GET['q'] . '%';
         }
 
 		// Tri de chaque colonne par ordre croissant et décroissant
