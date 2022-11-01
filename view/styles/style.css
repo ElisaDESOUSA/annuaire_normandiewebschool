@@ -7,9 +7,14 @@ body {
     @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500&display=swap");
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
     font-family: 'Fugaz One', cursive;
     color: #CA4B38;
+}
+
+h4, h5, h6 {
+    font-family: 'Fugaz One', cursive;
+    color: #252525;
 }
 
 a {
@@ -296,6 +301,37 @@ a {
     background-color: #ffffff !important;
     border: 1px solid #E0E0E0 !important;
 }
+
+.card {
+    width: 35% !important;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-header > h3 {
+    margin: 0 !important;
+}
+
+.width-30 {
+    width: 30% !important;
+}
+
+label {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 500;
+}
+
+
 /* Responsive ListStudents  */
 
 @media screen and (max-width: 700px) {

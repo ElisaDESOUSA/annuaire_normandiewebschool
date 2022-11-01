@@ -29,12 +29,12 @@ class SQLStatement
 		// On execute la commande SELECT avec les données récupérées depuis le controller
 		$sql = "SELECT * FROM `students`";
 
-		// Barre de recherche par nom de famille de l'étudiant
+		// Barre de recherche
 		$params = [];
 
 		if (!empty($_GET['q'])) 
 		{
-			// Regarde si ma recherche correspond à un des champs
+			// Vérifie si ma recherche correspond à un des champs
             $sql .= "WHERE name LIKE :name";
             $sql .= " OR firstname LIKE :firstname";
             $sql .= " OR emailAddress LIKE :emailAddress";
@@ -65,6 +65,9 @@ class SQLStatement
 			$sql .= " ORDER BY " . $_GET['sort'] . " $direction";
 		}
 
+		// Filtre étudiant
+		
+
 		// Prepare et exécute les requêtes SQL
 		$req = $pdo->connection->prepare($sql);
 		$req->execute($params);
@@ -89,17 +92,18 @@ class SQLStatement
 
 	}
 	
-	public function update($id)
+	public function update($id, $firstname, $name, $emailAddress, $phoneNumber, $year, $specialization)
 	{
 		$pdo = new Database;
 
-		$sql = "UPDATE FROM `students` WHERE id='$id'";
+		$sql = "UPDATE `students` SET firstname='$firstname', name='$name', emailAddress='$emailAddress',
+		phoneNumber='$phoneNumber', year='$year', specialization='$specialization' WHERE id='$id'";
 		$resultat = $sql;
 		$req = $pdo->connection->prepare($sql);
 		$req->execute();
 
 		if($resultat) {
-			echo "update $id";
+			echo "update $id, $firstname, $name, $emailAddress";
 			return true;
 		} else {
 			return false;
@@ -118,7 +122,6 @@ class SQLStatement
 		$req->execute();
 
 		if($resultat) {
-			echo "delete $id";
 			return true;
 		} else {
 			return false;
