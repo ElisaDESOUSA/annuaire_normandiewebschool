@@ -13,7 +13,7 @@
 
         <!-- Boutons action filtrage et ajout d'un nouvel étudiant -->
         <div class="heading_button">
-            <a href="#" class="button button_red">Filter la liste étudiante</a>
+            <!-- <a href="#" class="button button_red">Filter la liste étudiante</a> -->
             <a href="form.php" class="button button_green">Ajout d'un nouvel étudiant</a>
         </div>
     </div>
