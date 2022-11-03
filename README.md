@@ -1,13 +1,12 @@
 # Annuaire pour la Normandie Web School
 
-Vous serez au courant au fur et à mesure des fonctionnalités qui seront ajoutées à l'annuaire !
 ## **Technologies utilisées :**
 
 HTML / CSS / Bootstrap / JavaScript / PHP / MySQL 
 
 ## **Contexte :**
 
-La Normandie Web School souhaite centraliser les informations sur les nouveaux étudiants qui souhaitent rejoindre l'école. 
+La Normandie Web School souhaite centraliser les informations sur les nouveaux étudiants qui souhaitent rejoindre l'école sous forme d'un annuaire dynamique 
 
 ## **Cahier des charges :**
 
