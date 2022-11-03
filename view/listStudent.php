@@ -32,7 +32,7 @@
     </form>
 
     <!-- Filtre liste étudiante -->
-    <form action="" method="GET">
+    <form action="" method="GET" class="filter-form">
         <div class="card">
             <div class="card-header">
                 <h3>Filtre</h3>
@@ -53,7 +53,7 @@
                             <div class="filter-year">
                                 <input type="checkbox" name="checkboxYear[]" value="<?= $checklist->get_id(); ?>"
                                     <?php if(in_array($checklist->get_id(), $checked)) {
-                                        echo "checked!";
+                                        // echo "checked!";
                                     }?>
                                 />
                                 <?= $checklist->get_name(); ?>
@@ -77,7 +77,7 @@
                                 <div class="filter-specialization">
                                     <input type="checkbox" name="checkboxSpecialization[]" value="<?= $checklist->get_id(); ?>"
                                         <?php if(in_array($checklist->get_id(), $checked)) {
-                                            echo "checked!";
+                                            // echo "checked!";
                                         }?>
                                     />
                                     <?= $checklist->get_name(); ?>
@@ -90,8 +90,10 @@
     </form>
 
     <!-- Liste étudiants  -->
-    <table class="table table-striped">
+    <table class="table table-striped">        
         <thead>
+        <p class="text-description">Vous pouvez tirer par ordre alphabétique en cliquant sur le nom des colonnes</p>
+
             <tr>
                 <th><?= TableHelper::sort('id', 'ID', $_GET) ?></th>
                 <th><?= TableHelper::sort('firstname', 'Prénom', $_GET) ?></th>
