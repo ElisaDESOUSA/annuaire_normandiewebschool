@@ -2,6 +2,8 @@
 
 require_once('../services/database.php');
 require_once('../model/student.php');
+require_once('../model/year.php');
+require_once('../model/specialization.php');
 
 
 class SQLStatement
@@ -18,8 +20,101 @@ class SQLStatement
 		$req->execute(array($id));
 		$resultat = $req->fetch();
 		return $student = new Student($resultat);
+	}	
+	
+	public function getByYearId($year_id, $specialization_id)
+	{
+		$readForm = [];
+		// On instancie une nouvelle class Database afin de récupérer les données à la BDD
+		$pdo = new Database([PDO::FETCH_ASSOC]);
+
+		// On execute la commande SELECT avec les données récupérées depuis le controller
+		if($year_id != 0 && $specialization_id != 0)
+		{
+			$sql = "SELECT * FROM `students` WHERE year_id='$year_id' AND specialization_id='$specialization_id'";
+		}
+		elseif($year_id == 0 && $specialization_id != 0)
+		{
+			$sql = "SELECT * FROM `students` WHERE specialization_id='$specialization_id'";
+		}
+		elseif($year_id != 0 && $specialization_id == 0)
+		{
+			$sql = "SELECT * FROM `students` WHERE year_id='$year_id'";
+		}
+		elseif($year_id == 0 && $specialization_id == 0)
+		{
+			$sql = "SELECT * FROM `students`";
+		}
+
+		// Prepare et exécute les requêtes SQL
+		$req = $pdo->connection->prepare($sql);
+		$req->execute();
+		$resultat = $req->fetchAll();
+
+		foreach($resultat as $row) {
+			$readForm[] = new Student($row);
+		}
+		return $readForm;
+	}
+
+	public function yearGetId($name)
+	{
+		$pdo = new Database;
+		
+		$sql = "SELECT * FROM `year` WHERE name='$name'";
+		$req = $pdo->connection->prepare($sql);
+		$req->execute();
+		$resultat = $req->fetch();
+
+		return $resultat = new Year($resultat);
+		
+	}
+
+	public function specializationGetId($name)
+	{
+		$pdo = new Database;
+		
+		$sql = "SELECT * FROM `specialization` WHERE name='$name'";
+		$req = $pdo->connection->prepare($sql);
+		$req->execute();
+		$resultat = $req->fetch();
+
+		return $resultat = new Specialization($resultat);
+		
+	}
+
+	public function yearGetAll()
+	{
+		$pdo = new Database;
+
+		$readYear = [];
+		$sql = "SELECT * FROM `year`";
+		$req = $pdo->connection->prepare($sql);
+		$req->execute();
+		$resultat = $req->fetchAll();
+		
+		foreach($resultat as $row) {
+			$readYear[] = new Year($row);
+		}
+		return $readYear;
 	}
 	
+	public function specializationGetAll()
+	{
+		$pdo = new Database;
+
+		$readSpecialization = [];
+		$sql = "SELECT * FROM `specialization`";
+		$req = $pdo->connection->prepare($sql);
+		$req->execute();
+		$resultat = $req->fetchAll();
+		
+		foreach($resultat as $row) {
+			$readSpecialization[] = new Specialization($row);
+		}
+		return $readSpecialization;
+	}
+
 	public function getAll()
 	{
 		$readForm = [];
@@ -65,9 +160,6 @@ class SQLStatement
 			$sql .= " ORDER BY " . $_GET['sort'] . " $direction";
 		}
 
-		// Filtre étudiant
-		
-
 		// Prepare et exécute les requêtes SQL
 		$req = $pdo->connection->prepare($sql);
 		$req->execute($params);
@@ -79,25 +171,25 @@ class SQLStatement
 		return $readForm;
 	}
 	
-	public function create($firstname, $name, $emailAddress, $phoneNumber, $year, $specialization)
+	public function create($firstname, $name, $emailAddress, $phoneNumber, $year, $specialization, $year_id, $specialization_id)
 	{
 		// On instancie une nouvelle class Database afin d'envoyer les données à la BDD
 		$pdo = new Database;
 
 		// On execute la commande INSERT avec les données récupérées depuis le controller
-		$sql = "INSERT INTO `students` (firstname, name, emailAddress, phoneNumber, year, specialization)
-		VALUES('$firstname', '$name', '$emailAddress', '$phoneNumber', '$year', '$specialization')";
+		$sql = "INSERT INTO `students` (firstname, name, emailAddress, phoneNumber, year, specialization, year_id, specialization_id)
+		VALUES('$firstname', '$name', '$emailAddress', '$phoneNumber', '$year', '$specialization', '$year_id','$specialization_id')";
 		$req = $pdo->connection->prepare($sql);
 		$req->execute();
 
 	}
 	
-	public function update($id, $firstname, $name, $emailAddress, $phoneNumber, $year, $specialization)
+	public function update($id, $firstname, $name, $emailAddress, $phoneNumber, $year, $specialization, $year_id, $specialization_id)
 	{
 		$pdo = new Database;
 
 		$sql = "UPDATE `students` SET firstname='$firstname', name='$name', emailAddress='$emailAddress',
-		phoneNumber='$phoneNumber', year='$year', specialization='$specialization' WHERE id='$id'";
+		phoneNumber='$phoneNumber', year='$year', specialization='$specialization', year_id='$year_id', specialization_id='$specialization_id' WHERE id='$id'";
 		$resultat = $sql;
 		$req = $pdo->connection->prepare($sql);
 		$req->execute();

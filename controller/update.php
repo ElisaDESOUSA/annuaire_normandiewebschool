@@ -26,8 +26,14 @@
                 $phoneNumber = ($_POST['phoneNumber']);
                 $year = ($_POST['year']);
                 $specialization = ($_POST['specialization']);
+
+                $tempYear = $updateForm->yearGetId($year);
+				$year_id = $tempYear->get_id();
+
+				$tempSpecialization = $updateForm->specializationGetId($specialization);
+				$specialization_id = $tempSpecialization->get_id();
                 
-                return $updateForm->update($id, $firstname, $name, $emailAddress, $phoneNumber, $year, $specialization);
+                return $updateForm->update($id, $firstname, $name, $emailAddress, $phoneNumber, $year, $specialization, $year_id, $specialization_id);
         }  
     }
 ?>

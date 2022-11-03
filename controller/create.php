@@ -40,10 +40,16 @@ class Create
 				$phoneNumber = ($_POST['phoneNumber']);
 				$year = ($_POST['year']);
 				$specialization = ($_POST['specialization']);
+				//On récupère l'id correspondant à l'année renseignée
+				$tempYear = $insertForm->yearGetId($year);
+				$year_id = $tempYear->get_id();
+
+				$tempSpecialization = $insertForm->specializationGetId($specialization);
+				$specialization_id = $tempSpecialization->get_id();
             }
 
             // On passe les variables en paramètre de la fonction create() de SQLStatement
-            return $insertForm->create($firstname, $name, $emailAddress, $phoneNumber, $year, $specialization);
+            return $insertForm->create($firstname, $name, $emailAddress, $phoneNumber, $year, $specialization, $year_id, $specialization_id);
         }
     }
 }

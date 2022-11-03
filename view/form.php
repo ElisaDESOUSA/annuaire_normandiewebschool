@@ -27,24 +27,24 @@
         <div class="form_input">
             <label for="year">Année</label>
             <select name="year" id="" required>
-                <option value="default">Choissiez une année</option>
+                <option value="Non rempli">Choissiez une année</option>
                 <option value="A1 - Initial">Année 1 - Initial</option>
                 <option value="A1 - Alternance">Année 1 - Alternance</option>
                 <option value="A2 - Initial">Année 2 - Initial</option>
                 <option value="A2 - Alternance">Année 2 - Alternance</option>
                 <option value="A3 - Alternance">Année 3 - Alternance</option>
-                <option value="Non renseigné">Non renseigné</option>
+                <!-- <option value="Non rempli">Non renseigné</option> -->
             </select>
         </div>
         <div class="form_input">
             <label for="specialization">Spécialité souhaitée</label>
             <select name="specialization" id="" required>
-                <option value="default">Choissiez une spécialité</option>
+                <option value="Non rempli">Choissiez une spécialité</option>
                 <option value="Marketing">Marketing</option>
-                <option value="Développement web">Développement web</option>
+                <option value="Developpement web">Développement web</option>
                 <option value="Communication graphique">Communication graphique</option>
                 <option value="Social media manager">Social media manager</option>
-                <option value="Non renseigné">Non renseigné</option>
+                <!-- <option value="Non rempli">Non renseigné</option> -->
             </select>
         </div>
         <div class="contact_submit">

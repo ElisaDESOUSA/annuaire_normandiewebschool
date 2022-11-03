@@ -4,9 +4,9 @@ require_once('../services/database.php');
 require_once('../model/sqlStatement.php');
 
 // On instancie une nouvelle class Read pour qu'à chaque fois qu'on appelle le controller elle soit déjà instanciée automatiquement
-$read = new Read;
+$readFilter = new ReadFilter;
 
-$readForm = $read->readStudent();
+//$readFilteredStudents = $readFilter->readFilterStudents();
 // $readYear = $read->readYear();
 // $readSpecialization = $read->readSpecialization();
 
@@ -14,14 +14,15 @@ $readForm = $read->readStudent();
 // header('location: http://localhost/annuaire_normandiewebschool/view/listStudent.php');
 
 // On vient créer une class qui récupère les données de la BDD
-class Read 
+class ReadFilter 
 {
-    public function readStudent() 
+    public function readFilterStudents($year_id,$specialization_id) 
     {
 
         // On instancie une nouvelle class SQLStatement qui va nous permettre d'utiliser la commande SELECT de la fonction getAll()
-        $readForm = new SQLStatement();
-        return $readForm->getAll();
+        $readFilter = new SQLStatement();
+        return $readFilter->getByYearId($year_id,$specialization_id);
+
     }
 
     // public function readYear()
