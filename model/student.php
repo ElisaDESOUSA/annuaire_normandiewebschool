@@ -9,6 +9,8 @@ class Student
     public string $phoneNumber;
     public string $year;
     public string $specialization;
+    public int $year_id;
+    public int $specialization_id;
 
 
     public function __construct($row) 
@@ -20,6 +22,8 @@ class Student
         $this->phoneNumber = $row['phoneNumber'];
         $this->year = $row['year'];
         $this->specialization = $row['specialization'];
+        $this->year_id = $row['year_id'];
+        $this->specialization_id = $row['specialization_id'];
     }
 
     public function get_id() {
@@ -50,6 +54,11 @@ class Student
         return $this->specialization;
     }
 
+    public function get_year_id() {
+        return $this->year_id;
+    }
 
-
+    public function get_specialization_id() {
+        return $this->specialization_id;
+    }
 }
