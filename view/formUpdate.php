@@ -1,11 +1,10 @@
 <?php
 
-    require_once ('../index.php');
+    require_once('../index.php');
     require_once('../model/student.php');
     require_once('../controller/getStudent.php');
 
 ?>
-
 
 <div class="wrapper">
     <h1>Modifier l'étudiant</h1>
