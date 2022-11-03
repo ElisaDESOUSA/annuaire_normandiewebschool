@@ -18,17 +18,12 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-            <ul class="navigation_menu">
-                <li class="navigation_tabs">
-                    <a href="#" class="navigation_link" id="home-page" alt="Vers_La_Page_Accueil">Navigation</a>
-                </li>
-                <li class="navigation_onglet">
-                    <a href="#" class="navigation_link" id="portfolio-page" alt="Vers_Le_Portfolio">Navigation</a>
-                </li>
-            </ul>
         </div>
     </div>
 </nav>
-    <script src="view/scripts/script.js"></script>
+<?php
+header('location: http://localhost/annuaire_normandiewebschool/view/listStudent.php');
+?>
+    <!-- <script src="view/scripts/script.js"></script> -->
 </body>
 </html>

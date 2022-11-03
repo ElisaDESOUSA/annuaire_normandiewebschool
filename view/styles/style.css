@@ -82,7 +82,7 @@ a {
 }
 
 /* Responsive Barre de navigation  */
-
+/* 
 @media screen and (max-width: 960px) {
 
     .navigation {
@@ -173,7 +173,7 @@ a {
     #navigation_responsive.is-active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-}
+} */
 
 /* CSS Formulaire ajout d'un étudiant */
 input, select {
@@ -184,14 +184,14 @@ input, select {
     padding: 10px 20px 10px 20px;
 }
 
-input:invalid {
+/* input:invalid {
     border: 1px solid #CA4B38;
     color: #CA4B38;
 }
 
 .error {
     background-color: #900;
-}
+} */
 
 label {
     font-weight: 700;
@@ -302,6 +302,13 @@ a {
     border: 1px solid #E0E0E0 !important;
 }
 
+.filter-form {
+    margin-bottom: 4vh !important;
+}
+
+.text-description {
+    font-style: italic;
+}
 .card {
     width: 35% !important;
 }
@@ -315,6 +322,7 @@ a {
 
 .card-body {
     display: flex;
+    flex-wrap: wrap; 
     justify-content: space-between;
 }
 
@@ -331,11 +339,6 @@ label {
     font-weight: 500;
 }
 
-table {
-    margin-top: 4vh !important;
-}
-
-
 /* Responsive ListStudents  */
 
 @media screen and (max-width: 700px) {
@@ -345,5 +348,10 @@ table {
 
     .heading_button {
         width: 100%;
+        justify-content: flex-start;
+    }
+
+    .card {
+        width: 100% !important;
     }
 }
