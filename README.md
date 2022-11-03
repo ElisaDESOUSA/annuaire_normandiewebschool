@@ -19,11 +19,11 @@ La sauvegarde des données doit se faire au moyen d’une base de données (MySQ
 
 Avec un appel à une fonction PHP, vous devez pouvoir ajouter un contact dans votre BDD et le sauvegarder
 
-### _Modifier un contact :_ 
+### _Modifier un contact :_ ✅
 
 Avec un appel à une fonction PHP, vous devez pouvoir mettre à jour un contact dans votre BDD et le sauvegarder
 
-### _Suppression d’un contact :_
+### _Suppression d’un contact :_ ✅
 
 Avec un appel à une fonction PHP, vous devez pouvoir supprimer un contact dans votre BDD et le sauvegarder
 
@@ -35,6 +35,6 @@ Avec un appel à une fonction PHP, vous pouvez récupérer depuis votre BDD un c
 
 Avec un appel à une fonction PHP, vous pouvez trier les contacts sur le critère que vous souhaitez
 
-### _Filtrer les contacts :_ 
+### _Filtrer les contacts :_ ✅
 
 Avec un appel à une fonction PHP, vous pouvez filtrer les contacts sur le critère que vous souhaitez
