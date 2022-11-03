@@ -21,6 +21,9 @@
         </div>
     </div>
 </nav>
+<?php
+header('location: http://localhost/annuaire_normandiewebschool/view/listStudent.php');
+?>
     <!-- <script src="view/scripts/script.js"></script> -->
 </body>
 </html>
